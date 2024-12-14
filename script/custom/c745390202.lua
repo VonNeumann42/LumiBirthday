@@ -123,9 +123,12 @@ function s.thop(e, tp, eg, ep, ev, re, r, rp)
 		Duel.Hint(HINT_MESSAGE, 1-tp, aux.Stringid(id,4))
 		return
 	end
-	Duel.Hint(HINT_MESSAGE, 1-tp, aux.Stringid(id,5))
+	
 	local sc = g:Select(tp, 1, 1,nil)
-	Duel.SendtoHand(sc, tp, REASON_EFFECT)
+	if #sc >= 0 then
+		Duel.SendtoHand(sc, tp, REASON_EFFECT)
+		Duel.Hint(HINT_MESSAGE, 1-tp, aux.Stringid(id,5))
+	end
 end
 
 -- e5 functions
